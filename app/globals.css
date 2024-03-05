@@ -2,32 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .card {
+        @apply w-32 h-48 rounded-xl relative flex justify-center items-center text-lg;
+
+        transform: rotateY(180deg);
+        transition: all 0.3s ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
+    .mini-card {
+        @apply h-32;
+    }
+    .micro-card {
+        @apply h-16;
+    }
+    .card::before {
+        @apply absolute inset-0 transform rounded-xl bg-slate-100 border-2 border-slate-300 flex justify-center items-center text-9xl;
+
+        transform: rotateY(180deg);
+        content: '?';
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+    .mini-card::before {
+        @apply text-6xl;
+    }
+    .micro-card::before {
+        @apply text-3xl;
+    }
+
+    .is-open {
+        transform: rotateY(0deg);
+    }
+    .is-guessed {
+        /*transform: scale(1.1)*/
+        box-shadow: 0 0 0 2px lightgoldenrodyellow, 0 0 0 4px gold;
+    }
 }
