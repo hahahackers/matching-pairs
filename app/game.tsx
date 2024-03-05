@@ -12,7 +12,7 @@ export const Game = observer(() => {
   }, []);
 
   return (
-    <main className="m-12 text-center">
+    <main className="m-12 text-center justify-center flex flex-col items-center">
       <nav className="fixed top-2 left-2">
         <ul className="flex gap-2">
           <li>
@@ -33,7 +33,7 @@ export const Game = observer(() => {
         </ul>
       </nav>
       <p className="mb-4">Steps: {game.steps}</p>
-      <ul className="flex items-center justify-center flex-wrap gap-4">
+      <ul className="flex items-center justify-center flex-wrap gap-4 max-w-[900px]">
         {_.map(Array.from(game.cards), ({ color, isGuessed }, index) => (
           <li key={index}>
             <button
