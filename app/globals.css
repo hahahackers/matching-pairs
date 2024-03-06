@@ -8,8 +8,11 @@
 
         transform: rotateY(180deg);
         transition: all 0.3s ease-in-out;
-        backface-visibility: hidden;
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
         transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+
     }
     .mini-card {
         @apply h-32;
@@ -22,8 +25,10 @@
 
         transform: rotateY(180deg);
         content: '?';
-        transform-style: preserve-3d;
         backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
     }
     .mini-card::before {
         @apply text-6xl;
